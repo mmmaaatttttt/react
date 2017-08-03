@@ -131,7 +131,7 @@ var DOMPropertyOperations = {
             return stringValue;
           }
         }
-      } else if (DOMProperty.isWriteable(name, expected)) {
+      } else if (DOMProperty.shouldSetAttribute(name, expected)) {
         return DOMPropertyOperations.diffValueForAttribute(
           node,
           name,
@@ -200,7 +200,7 @@ var DOMPropertyOperations = {
           node.setAttribute(attributeName, '' + value);
         }
       }
-    } else if (DOMProperty.isWriteable(name, value)) {
+    } else if (DOMProperty.shouldSetAttribute(name, value)) {
       DOMPropertyOperations.setValueForAttribute(node, name, value);
       return;
     }
